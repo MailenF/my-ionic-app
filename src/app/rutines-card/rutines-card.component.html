@@ -1,3 +1,27 @@
-<p>
-  rutines-card works!
-</p>
+<ion-content class="ion-padding">
+  <ng-container *ngFor="let rutine of rutines"
+    ><ion-card>
+      <ion-card-header>
+        <ion-card-title>Rutina: {{ rutine.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-button fill="clear" (click)="setOpen(true, rutine.id)"
+        >Detalle</ion-button
+      >
+      <ion-button fill="clear">Eliminar</ion-button>
+    </ion-card>
+  </ng-container>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="setClose()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <app-rutines-modal [rutineId]="rutinaId"></app-rutines-modal>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

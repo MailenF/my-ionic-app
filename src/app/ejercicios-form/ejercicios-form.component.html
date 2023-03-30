@@ -1,3 +1,30 @@
-<p>
-  ejercicios-form works!
-</p>
+<form [formGroup]="formulario" (submit)="onSubmit()" novalidate>
+  <ion-item>
+    <ion-label class="form-name" position="floating"
+      >Nombre de la rutina</ion-label
+    >
+    <ion-input formControlName="name" type="text" required></ion-input>
+  </ion-item>
+
+  <span
+    class="error ion-padding"
+    *ngIf="isSubmitted && errorControl['name'].errors ? ['required'] : ''"
+  >
+    Completar campo.
+  </span>
+
+  <!--  <ion-item>-->
+  <!--    <ion-label class="form-name" position="floating">Usuario</ion-label>-->
+  <!--    <ion-input formControlName="idUser" type="text" required></ion-input>-->
+  <!--  </ion-item>-->
+
+  <ion-list>
+    <ng-container
+      *ngFor="let ctrl of asArrayOfFormGroup(formRutina); let i = index"
+    >
+      <app-rutines-form [form]="ctrl" [index]="i"> </app-rutines-form>
+    </ng-container>
+
+    <ion-button type="submit">CREAR</ion-button>
+  </ion-list>
+</form>

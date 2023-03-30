@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getAuth } from 'firebase/auth';
+import { EjerciciosService } from '../services/ejercicios.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.page.scss'],
 })
 export class HomePagePage implements OnInit {
-
-  constructor() { }
+  auth = getAuth();
+  user = this.auth.currentUser;
+  constructor(private service: EjerciciosService) {}
 
   ngOnInit() {
+    if (this.user !== null) {
+      const uid = this.user.uid;
+    }
   }
-
 }

@@ -1,8 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ng-container
+      *ngIf="
+user$ | async as user"
+    >
+      <h6>{{user.email}}</h6>
+    </ng-container>
+    <ion-icon
+      (click)="logOut()"
+      slot="end"
+      size="large"
+      name="log-out-outline"
+    ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +22,5 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-home-page></app-home-page>
 </ion-content>

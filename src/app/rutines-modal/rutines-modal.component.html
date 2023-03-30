@@ -1,3 +1,39 @@
-<p>
-  rutines-modal works!
-</p>
+<ng-container *ngFor="let data of data">
+  <ng-container *ngFor="let rutina of data.rutina">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img
+            alt="Silhouette of mountains"
+            src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
+          />
+        </ion-col>
+        <ion-col>
+          {{ rutina.ejercicio }}
+        </ion-col>
+
+        <ion-col>
+          <ion-label position="stacked">Rep</ion-label>
+          {{ rutina.repeticiones }}
+        </ion-col>
+
+        <ion-col>
+          <ion-label position="stacked">Ser</ion-label>
+          {{ rutina.series }}
+        </ion-col>
+        <ion-col> <ion-checkbox>Themed checkbox</ion-checkbox></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ng-container *ngFor="let subRutina of rutina.subRowArray">
+      <ion-grid>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+          <ion-col> {{ subRutina.rep }}</ion-col>
+          <ion-col>{{ subRutina.ser }} </ion-col>
+          <ion-col><ion-checkbox>Themed checkbox</ion-checkbox></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ng-container>
+  </ng-container>
+</ng-container>

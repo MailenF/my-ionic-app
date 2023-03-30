@@ -1,3 +1,33 @@
-<p>
-  sub-rutines-form works!
-</p>
+<form [formGroup]="form">
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-input
+          formControlName="rep"
+          type="number"
+          placeholder="0"
+        ></ion-input
+      ></ion-col>
+
+      <ion-col
+        ><ion-input
+          formControlName="ser"
+          type="number"
+          placeholder="0"
+        ></ion-input>
+      </ion-col>
+      <ion-col
+        ><ion-fab>
+          <ion-fab-button
+            size="small"
+            color="danger"
+            (click)="deleteSubArray.emit(null)"
+          >
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-fab-button> </ion-fab
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
