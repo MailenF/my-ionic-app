@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-ionic-app-2d764": {
+      "hosting": {
+        "app": [
+          "my-ionic-app-2d764"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-ionic-app-2d764"
+  }
+}
